@@ -20,6 +20,7 @@ WebSyCodeApps/
 ├── index.html              # Main landing page (Hero canvas, About, Services, Team, Careers, Footer)
 ├── apps.html               # New Applications showcase page (Search, Filter, Mockup Modals, Downloads)
 ├── contact.html            # Contact Us page (Address, WhatsApp, Email, QR Code, Message Form)
+├── app-ads.txt             # Authorized Digital Sellers verification for AdMob/Google Ads
 ├── assets/
 │   ├── header_logo.webp    # Authentic WebSyCode brand header logo
 │   ├── favicon.webp        # Authentic WebSyCode favicon
