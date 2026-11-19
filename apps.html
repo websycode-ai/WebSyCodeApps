@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>WebSyCode Applications | Mobile, Web &amp; Desktop Software Suite</title>
-  <meta name="description" content="Explore WebSyCode's lineup of production-ready business applications, POS systems, campus ERP, e-commerce storefronts, and developer tools.">
-  <meta name="keywords" content="websycode apps, android apps, POS billing software, college ERP, e-commerce app, agile task management, software downloads, ankleshwar, gujarat">
+  <title>WebSyCode Applications | Official Software &amp; Tools</title>
+  <meta name="description" content="Explore official applications and tools developed by WebSyCode IT Consultancy and Development Center.">
+  <meta name="keywords" content="websycode apps, android apps, web apps, software development, surat, ankleshwar, gujarat">
   <meta name="author" content="WebSyCode">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -63,346 +63,72 @@
     <section class="apps-hero">
       <div class="container">
         <div class="apps-hero-badge">
-          <i class="fa-solid fa-cubes"></i> WebSyCode Software Ecosystem
+          <i class="fa-solid fa-cubes"></i> Software Development
         </div>
-        <h1>Applications &amp; Software Suite</h1>
+        <h1>Applications &amp; Products</h1>
         <p>
-          Discover our fleet of high-performance mobile, web, and desktop software crafted for retail, education, e-commerce, and development teams. Built for high reliability, security, and effortless user experience.
+          Official applications, mobile solutions, and web utilities developed by WebSyCode.
         </p>
       </div>
     </section>
 
-    <!-- Apps Toolbar: Search & Category Filter Chips -->
+    <!-- Apps Toolbar: Search & Category Filter Chips (Active when apps exist) -->
     <section class="apps-toolbar-section">
       <div class="apps-toolbar-card">
         <!-- Search Bar -->
         <div class="apps-search-wrapper">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="appSearchInput" class="apps-search-input" placeholder="Search apps by title, feature, or technology..." aria-label="Search applications">
+          <input type="text" id="appSearchInput" class="apps-search-input" placeholder="Search applications..." aria-label="Search applications">
         </div>
 
         <!-- Filter Chips -->
         <div class="apps-filter-chips">
           <button class="app-filter-btn active" data-filter="all">
-            <i class="fa-solid fa-border-all"></i> All Applications (6)
+            <i class="fa-solid fa-border-all"></i> All
+          </button>
+          <button class="app-filter-btn" data-filter="mobile">
+            <i class="fa-brands fa-android"></i> Mobile Apps
+          </button>
+          <button class="app-filter-btn" data-filter="web">
+            <i class="fa-solid fa-globe"></i> Web Applications
           </button>
           <button class="app-filter-btn" data-filter="business">
-            <i class="fa-solid fa-briefcase"></i> Business &amp; POS
-          </button>
-          <button class="app-filter-btn" data-filter="education">
-            <i class="fa-solid fa-graduation-cap"></i> Education &amp; Campus
-          </button>
-          <button class="app-filter-btn" data-filter="ecommerce">
-            <i class="fa-solid fa-bag-shopping"></i> E-Commerce
-          </button>
-          <button class="app-filter-btn" data-filter="productivity">
-            <i class="fa-solid fa-list-check"></i> Productivity &amp; Dev
-          </button>
-          <button class="app-filter-btn" data-filter="cloud">
-            <i class="fa-solid fa-cloud"></i> Cloud &amp; Utilities
+            <i class="fa-solid fa-briefcase"></i> Enterprise &amp; Business
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Apps Grid Section -->
+    <!-- Apps Grid Container -->
     <section class="apps-grid-container">
-      <div class="apps-grid">
-
-        <!-- App 1: WebSy Bill -->
-        <div class="app-card-wrapper" data-category="business" data-tags="billing pos gst invoice retail thermal barcode inventory accounting">
-          <div class="app-card">
-            <div class="app-card-header">
-              <div class="app-icon-box" style="background: linear-gradient(135deg, #0673b5, #0097c9);">
-                <i class="fa-solid fa-cash-register"></i>
-              </div>
-              <div class="app-header-text">
-                <span class="app-category-pill">Business &amp; POS</span>
-                <h3 class="app-name">WebSy Bill (Smart POS &amp; GST)</h3>
-                <p class="app-tagline">Fast &amp; Offline-Ready Billing Software for Retail and Wholesalers</p>
-              </div>
-            </div>
-
-            <div class="app-card-body">
-              <p class="app-desc">
-                High-speed POS and GST-compliant invoicing system tailored for retail shops, supermarkets, and electronics distributors. Prints to thermal printers and dispatches bills on WhatsApp.
-              </p>
-              <ul class="app-feature-list">
-                <li><i class="fa-solid fa-circle-check"></i> <span>3-Second GST Bill generation with instant WhatsApp share</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>100% Offline-first operation with auto cloud synchronization</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Barcode scanner, 2"/3" thermal printer, and cash drawer support</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Automatic low-stock alerts and GSTR-1/3B tax export</span></li>
-              </ul>
-
-              <div class="app-platform-badges">
-                <span class="platform-pill"><i class="fa-brands fa-android"></i> Android APK</span>
-                <span class="platform-pill"><i class="fa-brands fa-windows"></i> Windows</span>
-                <span class="platform-pill"><i class="fa-solid fa-globe"></i> Web Cloud</span>
-              </div>
-            </div>
-
-            <div class="app-card-footer">
-              <div class="d-flex gap-2">
-                <button class="btn-app-action btn-primary-action" onclick="openAppModal('websy_bill')">
-                  <i class="fa-solid fa-expand"></i> View Details
-                </button>
-                <button class="btn-app-action btn-secondary-action" onclick="triggerAppAction('Download APK', 'WebSy Bill')">
-                  <i class="fa-brands fa-android"></i> APK
-                </button>
-              </div>
-              <button class="btn-app-action btn-preview-action" onclick="openAppModal('websy_bill')">
-                <i class="fa-solid fa-images"></i> Screenshots
-              </button>
-            </div>
-          </div>
+      
+      <!-- Empty State: Displayed when no applications are published yet -->
+      <div id="emptyAppsState" class="empty-apps-state">
+        <div class="empty-apps-icon">
+          <i class="fa-solid fa-mobile-screen-button"></i>
         </div>
-
-        <!-- App 2: WebSy Campus ERP -->
-        <div class="app-card-wrapper" data-category="education" data-tags="campus college university school attendance erp student project fee education">
-          <div class="app-card">
-            <div class="app-card-header">
-              <div class="app-icon-box" style="background: linear-gradient(135deg, #0097c9, #0673b5);">
-                <i class="fa-solid fa-graduation-cap"></i>
-              </div>
-              <div class="app-header-text">
-                <span class="app-category-pill">Education &amp; Campus</span>
-                <h3 class="app-name">WebSy Campus ERP</h3>
-                <p class="app-tagline">Complete College &amp; Training Institute Management Suite</p>
-              </div>
-            </div>
-
-            <div class="app-card-body">
-              <p class="app-desc">
-                Engineered for BCA/MCA universities, engineering colleges, and technical training centers. Handles student attendance via QR code, practical submissions, and fee tracking.
-              </p>
-              <ul class="app-feature-list">
-                <li><i class="fa-solid fa-circle-check"></i> <span>High-speed QR student attendance with geofence fraud check</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Semester final year project submission &amp; code grading portal</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Tuition fee management, online receipts, and installment logs</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Parent portal with automatic WhatsApp absence &amp; exam alerts</span></li>
-              </ul>
-
-              <div class="app-platform-badges">
-                <span class="platform-pill"><i class="fa-brands fa-android"></i> Android</span>
-                <span class="platform-pill"><i class="fa-brands fa-apple"></i> iOS</span>
-                <span class="platform-pill"><i class="fa-solid fa-laptop"></i> Web Portal</span>
-              </div>
-            </div>
-
-            <div class="app-card-footer">
-              <div class="d-flex gap-2">
-                <button class="btn-app-action btn-primary-action" onclick="openAppModal('websy_campus')">
-                  <i class="fa-solid fa-expand"></i> View Details
-                </button>
-                <button class="btn-app-action btn-secondary-action" onclick="triggerAppAction('Play Store Link', 'WebSy Campus')">
-                  <i class="fa-brands fa-google-play"></i> Play Store
-                </button>
-              </div>
-              <button class="btn-app-action btn-preview-action" onclick="openAppModal('websy_campus')">
-                <i class="fa-solid fa-images"></i> Screenshots
-              </button>
-            </div>
-          </div>
+        <h2>Applications Coming Soon</h2>
+        <p>
+          Our application suite and public releases are currently in development and staging. Check back soon for official downloads and web applications.
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="contact.html" class="button button-primary">
+            <i class="fa-solid fa-paper-plane"></i> Inquire About Custom Apps
+          </a>
+          <a href="index.html#services" class="button button-outline">
+            <i class="fa-solid fa-list-check"></i> Explore Our Services
+          </a>
         </div>
-
-        <!-- App 3: ShopSy Omnichannel E-Commerce -->
-        <div class="app-card-wrapper" data-category="ecommerce" data-tags="ecommerce shop store online shopping cart upi payments delivery razorpay">
-          <div class="app-card">
-            <div class="app-card-header">
-              <div class="app-icon-box" style="background: linear-gradient(135deg, #0673b5, #1e3c72);">
-                <i class="fa-solid fa-bag-shopping"></i>
-              </div>
-              <div class="app-header-text">
-                <span class="app-category-pill">E-Commerce</span>
-                <h3 class="app-name">ShopSy Storefront</h3>
-                <p class="app-tagline">High-Performance Mobile Shopping App &amp; Storefront Engine</p>
-              </div>
-            </div>
-
-            <div class="app-card-body">
-              <p class="app-desc">
-                Flagship omnichannel e-commerce platform offering synchronized mobile customer apps, seamless UPI and card payments, real-time dispatch tracking, and merchant administration.
-              </p>
-              <ul class="app-feature-list">
-                <li><i class="fa-solid fa-circle-check"></i> <span>One-click UPI checkout (GPay, PhonePe, Paytm) &amp; COD OTP check</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Live order delivery tracking with push and WhatsApp updates</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Automated abandoned cart recovery notifications</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Coupons, flash sales, tier discounts, and loyalty wallet</span></li>
-              </ul>
-
-              <div class="app-platform-badges">
-                <span class="platform-pill"><i class="fa-brands fa-android"></i> Android</span>
-                <span class="platform-pill"><i class="fa-brands fa-apple"></i> iOS App</span>
-                <span class="platform-pill"><i class="fa-solid fa-store"></i> Web PWA</span>
-              </div>
-            </div>
-
-            <div class="app-card-footer">
-              <div class="d-flex gap-2">
-                <button class="btn-app-action btn-primary-action" onclick="openAppModal('shopsy_store')">
-                  <i class="fa-solid fa-expand"></i> View Details
-                </button>
-                <button class="btn-app-action btn-secondary-action" onclick="triggerAppAction('Demo Launch', 'ShopSy')">
-                  <i class="fa-solid fa-play"></i> Live Demo
-                </button>
-              </div>
-              <button class="btn-app-action btn-preview-action" onclick="openAppModal('shopsy_store')">
-                <i class="fa-solid fa-images"></i> Screenshots
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- App 4: TaskCraft Agile PM -->
-        <div class="app-card-wrapper" data-category="productivity" data-tags="agile sprint kanban tasks project management git github software engineering tracking">
-          <div class="app-card">
-            <div class="app-card-header">
-              <div class="app-icon-box" style="background: linear-gradient(135deg, #232323, #0673b5);">
-                <i class="fa-solid fa-list-check"></i>
-              </div>
-              <div class="app-header-text">
-                <span class="app-category-pill">Productivity &amp; Dev</span>
-                <h3 class="app-name">TaskCraft Agile PM</h3>
-                <p class="app-tagline">Agile Project &amp; Task Management Tool for Engineering Teams</p>
-              </div>
-            </div>
-
-            <div class="app-card-body">
-              <p class="app-desc">
-                Crafted around Agile Software Craftsmanship principles. Enables engineering teams and project trainees to manage sprint backlogs, link GitHub commits, and track velocity.
-              </p>
-              <ul class="app-feature-list">
-                <li><i class="fa-solid fa-circle-check"></i> <span>Visual drag-and-drop Kanban boards with custom workflow states</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>GitHub &amp; GitLab commit sync with automated task resolution</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Sprint burndown analytics, velocity forecast, and work logs</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Markdown technical documentation and issue discussion threads</span></li>
-              </ul>
-
-              <div class="app-platform-badges">
-                <span class="platform-pill"><i class="fa-solid fa-globe"></i> Web Cloud</span>
-                <span class="platform-pill"><i class="fa-brands fa-android"></i> Android</span>
-                <span class="platform-pill"><i class="fa-brands fa-windows"></i> Desktop</span>
-              </div>
-            </div>
-
-            <div class="app-card-footer">
-              <div class="d-flex gap-2">
-                <button class="btn-app-action btn-primary-action" onclick="openAppModal('taskcraft_pm')">
-                  <i class="fa-solid fa-expand"></i> View Details
-                </button>
-                <button class="btn-app-action btn-secondary-action" onclick="triggerAppAction('Web App', 'TaskCraft')">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Web App
-                </button>
-              </div>
-              <button class="btn-app-action btn-preview-action" onclick="openAppModal('taskcraft_pm')">
-                <i class="fa-solid fa-images"></i> Screenshots
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- App 5: QuickOrder Restaurant POS -->
-        <div class="app-card-wrapper" data-category="business" data-tags="restaurant cafe pos kds kitchen food table qr ordering dining">
-          <div class="app-card">
-            <div class="app-card-header">
-              <div class="app-icon-box" style="background: linear-gradient(135deg, #0097c9, #232323);">
-                <i class="fa-solid fa-utensils"></i>
-              </div>
-              <div class="app-header-text">
-                <span class="app-category-pill">Business &amp; POS</span>
-                <h3 class="app-name">QuickOrder Restaurant POS</h3>
-                <p class="app-tagline">Touch POS, Table Ordering &amp; Kitchen Display for Cafes &amp; Dining</p>
-              </div>
-            </div>
-
-            <div class="app-card-body">
-              <p class="app-desc">
-                Complete point-of-sale and kitchen coordination system for restaurants, cafes, and bakeries. Includes contactless QR table ordering, live KDS screens, and day-end settlement.
-              </p>
-              <ul class="app-feature-list">
-                <li><i class="fa-solid fa-circle-check"></i> <span>Visual floor layout showing occupied, vacant, and billing tables</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Live Kitchen Display Screen (KDS) with color-coded preparation timers</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Contactless QR code digital menu and self-ordering for diners</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Aggregated order dashboard for Zomato &amp; Swiggy deliveries</span></li>
-              </ul>
-
-              <div class="app-platform-badges">
-                <span class="platform-pill"><i class="fa-brands fa-android"></i> Android Tablet / POS</span>
-                <span class="platform-pill"><i class="fa-solid fa-tv"></i> KDS Screen</span>
-              </div>
-            </div>
-
-            <div class="app-card-footer">
-              <div class="d-flex gap-2">
-                <button class="btn-app-action btn-primary-action" onclick="openAppModal('quickorder_pos')">
-                  <i class="fa-solid fa-expand"></i> View Details
-                </button>
-                <button class="btn-app-action btn-secondary-action" onclick="triggerAppAction('Download APK', 'QuickOrder')">
-                  <i class="fa-brands fa-android"></i> Tablet APK
-                </button>
-              </div>
-              <button class="btn-app-action btn-preview-action" onclick="openAppModal('quickorder_pos')">
-                <i class="fa-solid fa-images"></i> Screenshots
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- App 6: WebSy CloudSync & Client Portal -->
-        <div class="app-card-wrapper" data-category="cloud" data-tags="cloud storage backup files vault client portal security hosting server">
-          <div class="app-card">
-            <div class="app-card-header">
-              <div class="app-icon-box" style="background: linear-gradient(135deg, #0673b5, #005689);">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-              </div>
-              <div class="app-header-text">
-                <span class="app-category-pill">Cloud &amp; Utilities</span>
-                <h3 class="app-name">WebSy CloudSync &amp; Vault</h3>
-                <p class="app-tagline">Secure Enterprise Backup, File Vault &amp; Client Delivery Hub</p>
-              </div>
-            </div>
-
-            <div class="app-card-body">
-              <p class="app-desc">
-                Enterprise cloud storage and client deliverables portal. Safeguards critical databases, website backups, and digital assets with AES-256 encryption and 99.99% uptime.
-              </p>
-              <ul class="app-feature-list">
-                <li><i class="fa-solid fa-circle-check"></i> <span>End-to-end AES-256 encryption for database and document archives</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Scheduled automatic backups for MySQL, PostgreSQL, and folders</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>Branded client delivery links with password and expiry dates</span></li>
-                <li><i class="fa-solid fa-circle-check"></i> <span>30-Day file revision history and instant one-click restoration</span></li>
-              </ul>
-
-              <div class="app-platform-badges">
-                <span class="platform-pill"><i class="fa-solid fa-cloud"></i> Web Vault</span>
-                <span class="platform-pill"><i class="fa-brands fa-windows"></i> Windows Sync</span>
-                <span class="platform-pill"><i class="fa-brands fa-android"></i> Android Mobile</span>
-              </div>
-            </div>
-
-            <div class="app-card-footer">
-              <div class="d-flex gap-2">
-                <button class="btn-app-action btn-primary-action" onclick="openAppModal('websy_cloudsync')">
-                  <i class="fa-solid fa-expand"></i> View Details
-                </button>
-                <button class="btn-app-action btn-secondary-action" onclick="triggerAppAction('Launch Vault', 'WebSy CloudSync')">
-                  <i class="fa-solid fa-vault"></i> Launch Vault
-                </button>
-              </div>
-              <button class="btn-app-action btn-preview-action" onclick="openAppModal('websy_cloudsync')">
-                <i class="fa-solid fa-images"></i> Screenshots
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- No Apps Found Message -->
+      <!-- Dynamic Apps Grid (Populated via window.appsCatalog in js/apps.js) -->
+      <div class="apps-grid" style="display: none;"></div>
+
+      <!-- No Matching Apps Found during Search/Filter -->
       <div id="noAppsFound" class="no-apps-message">
         <i class="fa-solid fa-box-open"></i>
         <h3>No applications match your search query</h3>
-        <p>Try clearing your search query or selecting "All Applications" from the category filters above.</p>
+        <p>Try clearing your search query or selecting "All" from the category filters.</p>
       </div>
     </section>
 
@@ -411,7 +137,7 @@
       <div class="container">
         <h2>Need a Custom Application Built for Your Business?</h2>
         <p>
-          We engineer tailored Android apps, enterprise web dashboards, billing solutions, and cloud architectures designed specifically for your organizational requirements.
+          We build custom Android apps, enterprise web dashboards, e-commerce solutions, and cloud architectures designed specifically for your organization.
         </p>
         <div class="d-flex justify-content-center gap-3 flex-wrap">
           <a href="contact.html" class="button button-primary">
@@ -424,7 +150,7 @@
       </div>
     </section>
 
-    <!-- App Details & Screenshots Modal -->
+    <!-- App Details & Screenshots Modal (Ready for real apps) -->
     <div id="appDetailsModal" class="app-modal-overlay">
       <div class="app-modal-container">
         <div class="app-modal-header">
@@ -436,33 +162,24 @@
         </div>
 
         <div class="app-modal-body">
-          <!-- Interactive Mockup & Screenshots Preview -->
-          <div id="modalAppPreviewScreen">
-            <!-- Dynamically populated -->
-          </div>
-
-          <!-- Long Description -->
+          <div id="modalAppPreviewScreen"></div>
           <h4 class="modal-section-title"><i class="fa-solid fa-circle-info"></i> Overview</h4>
           <p id="modalAppDescription" style="color: #475569; line-height: 1.7; font-size: 0.95rem;"></p>
-
-          <!-- Key Features -->
-          <h4 class="modal-section-title"><i class="fa-solid fa-star"></i> Key Capabilities &amp; Specifications</h4>
+          <h4 class="modal-section-title"><i class="fa-solid fa-star"></i> Key Capabilities</h4>
           <ul id="modalAppFeatures" class="modal-feature-list"></ul>
-
-          <!-- Tech Stack -->
           <h4 class="modal-section-title"><i class="fa-solid fa-microchip"></i> Technology Architecture</h4>
           <div id="modalAppTechStack" class="modal-tech-stack"></div>
         </div>
 
         <div class="app-modal-footer">
           <button class="btn-app-action btn-secondary-action" onclick="closeAppModal()">Close</button>
-          <a id="modalDownloadApk" href="#" class="btn-app-action btn-secondary-action" onclick="triggerAppAction('APK Download', 'App')">
+          <a id="modalDownloadApk" href="#" class="btn-app-action btn-secondary-action">
             <i class="fa-brands fa-android"></i> Download APK
           </a>
-          <a id="modalPlayStore" href="#" target="_blank" class="btn-app-action btn-secondary-action" onclick="triggerAppAction('Play Store', 'App')">
+          <a id="modalPlayStore" href="#" target="_blank" class="btn-app-action btn-secondary-action">
             <i class="fa-brands fa-google-play"></i> Play Store
           </a>
-          <a id="modalWebDemo" href="#" class="btn-app-action btn-primary-action" onclick="triggerAppAction('Live Demo', 'App')">
+          <a id="modalWebDemo" href="#" target="_blank" class="btn-app-action btn-primary-action">
             <i class="fa-solid fa-arrow-up-right-from-square"></i> Launch Live Demo
           </a>
         </div>

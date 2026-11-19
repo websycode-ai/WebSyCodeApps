@@ -1,15 +1,93 @@
-// WebSyCode Apps Page Interactive Logic
+// WebSyCode Applications Catalog & Manager
+
+// Real applications dataset. To add applications, insert app objects here or load them dynamically.
+window.appsCatalog = {};
 
 document.addEventListener("DOMContentLoaded", function() {
   const searchInput = document.getElementById("appSearchInput");
   const filterButtons = document.querySelectorAll(".app-filter-btn");
-  const appCards = document.querySelectorAll(".app-card-wrapper");
+  const appsGrid = document.querySelector(".apps-grid");
   const noResultsMsg = document.getElementById("noAppsFound");
+  const emptyStateContainer = document.getElementById("emptyAppsState");
 
   let currentCategory = "all";
   let currentSearchQuery = "";
 
+  // Render applications or empty state
+  function renderCatalog() {
+    const appsList = Object.values(window.appsCatalog || {});
+
+    if (appsList.length === 0) {
+      if (appsGrid) appsGrid.style.display = "none";
+      if (emptyStateContainer) emptyStateContainer.style.display = "block";
+      const toolbarSection = document.querySelector(".apps-toolbar-section");
+      if (toolbarSection) toolbarSection.style.display = "none";
+      return;
+    }
+
+    if (emptyStateContainer) emptyStateContainer.style.display = "none";
+    if (appsGrid) appsGrid.style.display = "grid";
+
+    // Populate appsGrid dynamically if apps exist
+    appsGrid.innerHTML = appsList.map(app => `
+      <div class="app-card-wrapper" data-category="${app.category || ''}" data-tags="${(app.tags || []).join(' ')}">
+        <div class="app-card">
+          <div class="app-card-header">
+            <div class="app-icon-box" style="background: ${app.themeGradient || 'linear-gradient(135deg, #0673b5, #0097c9)'}">
+              <i class="${app.iconClass || 'fa-solid fa-cube'}"></i>
+            </div>
+            <div class="app-header-text">
+              <span class="app-category-pill">${app.categoryTitle || 'Application'}</span>
+              <h3 class="app-name">${app.name}</h3>
+              <p class="app-tagline">${app.tagline || ''}</p>
+            </div>
+          </div>
+
+          <div class="app-card-body">
+            <p class="app-desc">${app.shortDescription || ''}</p>
+            <ul class="app-feature-list">
+              ${(app.features || []).map(f => `<li><i class="fa-solid fa-circle-check"></i> <span>${f}</span></li>`).join('')}
+            </ul>
+
+            <div class="app-platform-badges">
+              ${(app.platforms || []).map(p => `<span class="platform-pill">${p}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="app-card-footer">
+            <div class="d-flex gap-2">
+              <button class="btn-app-action btn-primary-action" onclick="openAppModal('${app.id}')">
+                <i class="fa-solid fa-expand"></i> View Details
+              </button>
+              ${app.apkLink ? `
+                <a href="${app.apkLink}" class="btn-app-action btn-secondary-action" onclick="triggerAppAction('Download APK', '${app.name}')">
+                  <i class="fa-brands fa-android"></i> APK
+                </a>
+              ` : ''}
+              ${app.playStoreLink ? `
+                <a href="${app.playStoreLink}" target="_blank" class="btn-app-action btn-secondary-action" onclick="triggerAppAction('Play Store Link', '${app.name}')">
+                  <i class="fa-brands fa-google-play"></i> Play Store
+                </a>
+              ` : ''}
+              ${app.webDemoLink ? `
+                <a href="${app.webDemoLink}" target="_blank" class="btn-app-action btn-secondary-action" onclick="triggerAppAction('Launch Demo', '${app.name}')">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Web Demo
+                </a>
+              ` : ''}
+            </div>
+            <button class="btn-app-action btn-preview-action" onclick="openAppModal('${app.id}')">
+              <i class="fa-solid fa-images"></i> Screenshots
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    filterApps();
+  }
+
   function filterApps() {
+    const appCards = document.querySelectorAll(".app-card-wrapper");
     let visibleCount = 0;
 
     appCards.forEach(card => {
@@ -26,17 +104,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
       if (matchesCategory && matchesSearch) {
         card.style.display = "block";
-        card.classList.remove("fade-out");
-        card.classList.add("fade-in");
         visibleCount++;
       } else {
         card.style.display = "none";
-        card.classList.remove("fade-in");
       }
     });
 
     if (noResultsMsg) {
-      if (visibleCount === 0) {
+      if (visibleCount === 0 && Object.keys(window.appsCatalog || {}).length > 0) {
         noResultsMsg.style.display = "block";
       } else {
         noResultsMsg.style.display = "none";
@@ -76,52 +151,75 @@ document.addEventListener("DOMContentLoaded", function() {
   const modalPreviewContainer = document.getElementById("modalAppPreviewScreen");
 
   window.openAppModal = function(appId) {
-    const data = window.appsCatalog[appId];
+    const data = (window.appsCatalog || {})[appId];
     if (!data || !appModal) return;
 
     modalTitle.textContent = data.name;
-    modalBadge.textContent = data.categoryTitle;
-    modalDesc.textContent = data.longDescription;
+    modalBadge.textContent = data.categoryTitle || "Application";
+    modalDesc.textContent = data.longDescription || data.shortDescription || "";
     
     // Render features
     if (modalFeatures) {
-      modalFeatures.innerHTML = data.features.map(f => `<li><i class="fa-solid fa-circle-check"></i> ${f}</li>`).join("");
+      modalFeatures.innerHTML = (data.features || []).map(f => `<li><i class="fa-solid fa-circle-check"></i> ${f}</li>`).join("");
     }
 
     // Render tech stack tags
     if (modalTechStack) {
-      modalTechStack.innerHTML = data.techStack.map(t => `<span class="tech-tag">${t}</span>`).join("");
+      modalTechStack.innerHTML = (data.techStack || []).map(t => `<span class="tech-tag">${t}</span>`).join("");
     }
 
     // Download / Launch URLs
-    if (modalDownloadApk) modalDownloadApk.href = data.apkLink || "#";
-    if (modalPlayStore) modalPlayStore.href = data.playStoreLink || "#";
-    if (modalWebDemo) modalWebDemo.href = data.webDemoLink || "#";
+    if (modalDownloadApk) {
+      if (data.apkLink) {
+        modalDownloadApk.href = data.apkLink;
+        modalDownloadApk.style.display = "inline-flex";
+      } else {
+        modalDownloadApk.style.display = "none";
+      }
+    }
+    if (modalPlayStore) {
+      if (data.playStoreLink) {
+        modalPlayStore.href = data.playStoreLink;
+        modalPlayStore.style.display = "inline-flex";
+      } else {
+        modalPlayStore.style.display = "none";
+      }
+    }
+    if (modalWebDemo) {
+      if (data.webDemoLink) {
+        modalWebDemo.href = data.webDemoLink;
+        modalWebDemo.style.display = "inline-flex";
+      } else {
+        modalWebDemo.style.display = "none";
+      }
+    }
 
     // Preview mockup
     if (modalPreviewContainer) {
       modalPreviewContainer.innerHTML = `
-        <div class="mockup-frame mockup-${data.type}">
+        <div class="mockup-frame">
           <div class="mockup-header">
             <span class="mockup-dot red"></span>
             <span class="mockup-dot yellow"></span>
             <span class="mockup-dot green"></span>
-            <span class="mockup-url-bar">${data.urlPreview}</span>
+            <span class="mockup-url-bar">${data.urlPreview || 'https://websycode.in/apps'}</span>
           </div>
           <div class="mockup-body">
-            <div class="mockup-hero-banner" style="background: ${data.themeGradient}">
-              <div class="mockup-hero-icon"><i class="${data.iconClass}"></i></div>
+            <div class="mockup-hero-banner" style="background: ${data.themeGradient || 'linear-gradient(135deg, #0673b5, #0097c9)'}">
+              <div class="mockup-hero-icon"><i class="${data.iconClass || 'fa-solid fa-cube'}"></i></div>
               <h3>${data.name}</h3>
-              <p>${data.tagline}</p>
+              <p>${data.tagline || ''}</p>
             </div>
-            <div class="mockup-content-grid">
-              ${data.screens.map((sc, i) => `
-                <div class="mockup-screen-card">
-                  <div class="screen-title"><i class="fa-solid fa-layer-group"></i> ${sc.title}</div>
-                  <p class="screen-caption">${sc.caption}</p>
-                </div>
-              `).join("")}
-            </div>
+            ${data.screens ? `
+              <div class="mockup-content-grid">
+                ${data.screens.map(sc => `
+                  <div class="mockup-screen-card">
+                    <div class="screen-title"><i class="fa-solid fa-layer-group"></i> ${sc.title}</div>
+                    <p class="screen-caption">${sc.caption}</p>
+                  </div>
+                `).join("")}
+              </div>
+            ` : ''}
           </div>
         </div>
       `;
@@ -152,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Toast alert for demo / download actions
   window.triggerAppAction = function(actionType, appName) {
-    showToast(`${appName}: ${actionType} initiated!`);
+    showToast(`${appName}: ${actionType}`);
   };
 
   function showToast(message) {
@@ -169,176 +267,7 @@ document.addEventListener("DOMContentLoaded", function() {
       toast.classList.remove("visible");
     }, 3500);
   }
-});
 
-// Catalog of applications created by WebSyCode
-window.appsCatalog = {
-  websy_bill: {
-    id: "websy_bill",
-    name: "WebSy Bill (Smart POS & GST)",
-    tagline: "Fast & Offline-Ready Billing Software for Retail and Wholesalers",
-    categoryTitle: "Business & POS",
-    iconClass: "fa-solid fa-cash-register",
-    themeGradient: "linear-gradient(135deg, #0673b5, #0097c9)",
-    type: "desktop",
-    urlPreview: "https://pos.websycode.in/billing",
-    longDescription: "WebSy Bill is an all-in-one POS and GST-compliant invoicing system crafted for supermarkets, electronics showrooms, pharmacies, and trading businesses. Designed with 99.99% reliability, high-speed thermal printing, barcode scanner compatibility, and instant WhatsApp bill delivery.",
-    features: [
-      "GST Invoice generation in under 3 seconds",
-      "Offline-first mode with automatic background cloud sync",
-      "Barcode scanning and multi-shelf inventory tracking",
-      "Instant WhatsApp & SMS digital invoice dispatch",
-      "Support for 2-inch and 3-inch thermal printers and A4 laser invoices",
-      "Daily profit, sales, tax reports, and ledger export to Excel/Tally"
-    ],
-    techStack: ["React", "Electron", "Node.js", "SQLite / PostgreSQL", "WebSy Cloud Sync"],
-    apkLink: "#download-apk",
-    playStoreLink: "https://play.google.com/store/apps/details?id=in.websycode.billpos",
-    webDemoLink: "https://websycode.in/#contact",
-    screens: [
-      { title: "Point of Sale Checkout", caption: "Lightning-fast barcode scan, hotkeys, and multi-payment split (Cash, UPI QR, Card)." },
-      { title: "Inventory & Low Stock Alerts", caption: "Automatic reorder notifications, expiry tracking, and supplier batch ledger." },
-      { title: "Tax & GSTR Analytics", caption: "Auto-computed GSTR-1 & GSTR-3B summaries ready for monthly filing." }
-    ]
-  },
-  websy_campus: {
-    id: "websy_campus",
-    name: "WebSy Campus ERP",
-    tagline: "Complete College, University & Training Institute Management Suite",
-    categoryTitle: "Education & Campus",
-    iconClass: "fa-solid fa-graduation-cap",
-    themeGradient: "linear-gradient(135deg, #0097c9, #0673b5)",
-    type: "mobile",
-    urlPreview: "https://campus.websycode.in/dashboard",
-    longDescription: "Built specifically for degree colleges, BCA/MCA universities, and technical training centers. WebSy Campus handles daily attendance with fast QR codes, student performance monitoring, project submissions, tuition fee installments, and live notifications.",
-    features: [
-      "Fast QR Code student attendance tracking with geofence protection",
-      "Semester project submission portal with plagiarism checks",
-      "Tuition fee management, online payment gateway, and receipt generation",
-      "Teacher timetable scheduling and lecture logs",
-      "Parent portal with daily absence and exam performance alerts",
-      "Comprehensive certificate and ID card batch printing"
-    ],
-    techStack: ["Android (Kotlin)", "Flutter", "PHP / Laravel", "MySQL", "Firebase"],
-    apkLink: "#download-apk",
-    playStoreLink: "https://play.google.com/store/apps/details?id=in.websycode.campus",
-    webDemoLink: "https://websycode.in/#contact",
-    screens: [
-      { title: "QR Attendance Terminal", caption: "Students tap their mobile ID to log morning attendance in real time." },
-      { title: "Project & Assignment Hub", caption: "Upload practical files, review student code, and assign marks online." },
-      { title: "Fee & Dues Tracker", caption: "Automated payment links sent to parents via WhatsApp and SMS." }
-    ]
-  },
-  shopsy_store: {
-    id: "shopsy_store",
-    name: "ShopSy Omnichannel E-Commerce",
-    tagline: "High-Performance Mobile Shopping App & Storefront Engine",
-    categoryTitle: "E-Commerce",
-    iconClass: "fa-solid fa-bag-shopping",
-    themeGradient: "linear-gradient(135deg, #0673b5, #1e3c72)",
-    type: "mobile",
-    urlPreview: "https://shopsy.websycode.in",
-    longDescription: "ShopSy is our flagship turnkey E-Commerce solution tailored for retail brands. It offers a synchronized Android & iOS customer app, lightning-fast progressive web app (PWA), integrated payments (Razorpay, PhonePe, Paytm, Stripe), and real-time order delivery notifications.",
-    features: [
-      "Ultra-fast product search, filter, and multi-variant attributes",
-      "One-click UPI checkout, credit cards, EMI, and COD with OTP verification",
-      "Live order status tracker with push notifications and WhatsApp integration",
-      "Automated abandoned cart recovery notifications",
-      "Vendor and delivery agent tracking dispatch portal",
-      "Coupons, flash sales, discount rules, and customer loyalty rewards"
-    ],
-    techStack: ["Flutter", "Next.js", "Node.js", "Redis", "Razorpay SDK"],
-    apkLink: "#download-apk",
-    playStoreLink: "https://play.google.com/store/apps/details?id=in.websycode.shopsy",
-    webDemoLink: "https://websycode.in/#contact",
-    screens: [
-      { title: "Modern Mobile Storefront", caption: "Smooth product grids, dynamic banner carousels, and instant add-to-bag." },
-      { title: "Instant UPI Checkout", caption: "Seamless intent-based payment with GPay, PhonePe, and Paytm." },
-      { title: "Merchant Order Console", caption: "Process orders, generate packing slips, and book couriers in 1 click." }
-    ]
-  },
-  taskcraft_pm: {
-    id: "taskcraft_pm",
-    name: "TaskCraft Agile PM",
-    tagline: "Agile Project & Task Management Tool for Engineering Teams",
-    categoryTitle: "Productivity & Dev",
-    iconClass: "fa-solid fa-list-check",
-    themeGradient: "linear-gradient(135deg, #232323, #0673b5)",
-    type: "desktop",
-    urlPreview: "https://taskcraft.websycode.in/sprints",
-    longDescription: "Engineered around Agile Software Craftsmanship principles, TaskCraft enables software development teams, interns, and project managers to plan sprints, assign user stories, link GitHub commits, and track velocity with zero bloat.",
-    features: [
-      "Kanban boards and Sprint backlogs with drag-and-drop ease",
-      "GitHub & GitLab commit sync with automated issue status transition",
-      "Time logging, billable hour tracking, and team capacity planning",
-      "Sprint burndown charts, cumulative flow diagrams, and velocity stats",
-      "Document editor with markdown support for technical specifications",
-      "Encrypted cloud backups with exportable audit logs"
-    ],
-    techStack: ["Vue.js", "Tailwind CSS", "Go / Python", "Docker", "PostgreSQL"],
-    apkLink: "#download-apk",
-    playStoreLink: "https://play.google.com/store/apps/details?id=in.websycode.taskcraft",
-    webDemoLink: "https://websycode.in/#contact",
-    screens: [
-      { title: "Agile Sprint Board", caption: "Interactive swimlanes with story point estimations and PR badges." },
-      { title: "Commit & Code Activity", caption: "Real-time stream of merged commits directly on each task card." },
-      { title: "Burndown Analytics", caption: "Precise sprint delivery projections based on historic team velocity." }
-    ]
-  },
-  quickorder_pos: {
-    id: "quickorder_pos",
-    name: "QuickOrder Restaurant POS & KDS",
-    tagline: "Touch POS, Table Ordering & Kitchen Display for Cafes & Dining",
-    categoryTitle: "Business & POS",
-    iconClass: "fa-solid fa-utensils",
-    themeGradient: "linear-gradient(135deg, #0097c9, #232323)",
-    type: "tablet",
-    urlPreview: "https://order.websycode.in/kds",
-    longDescription: "A reliable point-of-sale and kitchen coordination system for restaurants, cafes, cloud kitchens, and bakeries. Supports QR table ordering where guests view digital menus on their phone, order, and pay instantly.",
-    features: [
-      "Floor plan designer with real-time table occupancy status",
-      "Kitchen Display Screen (KDS) with color-coded preparation timers",
-      "QR code contactless menu & self-ordering for customers",
-      "Custom item modifiers (addons, spice level, combos)",
-      "Zomato & Swiggy online order sync into a single tablet dashboard",
-      "Day-end cashier handover settlement and sales breakdown"
-    ],
-    techStack: ["React Native", "Android POS SDK", "WebSocket", "Node.js", "MongoDB"],
-    apkLink: "#download-apk",
-    playStoreLink: "https://play.google.com/store/apps/details?id=in.websycode.quickorder",
-    webDemoLink: "https://websycode.in/#contact",
-    screens: [
-      { title: "Table Floor Management", caption: "Visual seating layout showing occupied, reserved, and billing tables." },
-      { title: "Live Kitchen Display (KDS)", caption: "Color-coded tickets alert chefs to urgent items and order modifications." },
-      { title: "Contactless QR Ordering", caption: "Diners scan the table QR code to browse pictures and order directly." }
-    ]
-  },
-  websy_cloudsync: {
-    id: "websy_cloudsync",
-    name: "WebSy CloudSync & Client Portal",
-    tagline: "Secure Enterprise Backup, File Vault & Client Delivery Hub",
-    categoryTitle: "Cloud & Utilities",
-    iconClass: "fa-solid fa-cloud-arrow-up",
-    themeGradient: "linear-gradient(135deg, #0673b5, #005689)",
-    type: "desktop",
-    urlPreview: "https://cloud.websycode.in/vault",
-    longDescription: "Secure business cloud storage and dedicated client deliverables portal. With WebSy CloudSync, businesses keep their critical databases, documents, and code repositories backed up with AES-256 encryption and 99.99% uptime.",
-    features: [
-      "End-to-end AES-256 encryption at rest and in transit",
-      "Automated scheduled MySQL, PostgreSQL, and folder backups",
-      "Branded client download portal with password-protected expiring links",
-      "Granular team access control and IP restriction policies",
-      "Version history with 30-day instant rollback",
-      "High-speed CDN edge endpoints across India and global regions"
-    ],
-    techStack: ["Golang", "AWS S3 / Wasabi", "React", "Docker", "Nginx"],
-    apkLink: "#download-apk",
-    playStoreLink: "https://play.google.com/store/apps/details?id=in.websycode.cloudsync",
-    webDemoLink: "https://websycode.in/#contact",
-    screens: [
-      { title: "Automated Backup Monitor", caption: "Real-time health check of daily database and directory snapshots." },
-      { title: "Client Secure Share", caption: "Generate custom branded download links with expiry date and pin." },
-      { title: "Activity Audit Logs", caption: "Complete trail of downloads, logins, and permission changes." }
-    ]
-  }
-};
+  // Initial render
+  renderCatalog();
+});
