@@ -40,14 +40,9 @@ WebSyCodeApps/
 
 ## 📱 Featured Applications (`apps.html`)
 
-| Application | Category | Description | Platforms |
-| :--- | :--- | :--- | :--- |
-| **WebSy Bill** | Business & POS | Fast & offline-ready GST billing with instant WhatsApp invoices & thermal printing | Android APK, Windows, Web |
-| **WebSy Campus** | Education & Campus | College ERP with QR attendance, project submissions, fee tracking & parent SMS | Android, iOS, Web Portal |
-| **ShopSy Storefront** | E-Commerce | Turnkey mobile retail shopping app with one-click UPI checkout (GPay, PhonePe, Paytm) | Android APK, iOS, Web PWA |
-| **TaskCraft Agile PM** | Productivity & Dev | Agile sprint planning & Kanban tool with GitHub/GitLab commit sync & burndown charts | Web Cloud, Android, Windows |
-| **QuickOrder POS** | Business & POS | Touch point-of-sale, table QR ordering, and Kitchen Display System (KDS) for dining | Android Tablet / POS, Web |
-| **WebSy CloudSync** | Cloud & Utilities | AES-256 encrypted file vault, database backups, and branded client delivery portal | Web Vault, Windows, Android |
+| Application | Category | Description | Platforms | Store Link |
+| :--- | :--- | :--- | :--- | :--- |
+| **Notiva – Simple Notes, Your Way** | Tools & Productivity | Lightweight, distraction-free notes app with local Realm database, light/dark themes, pinning, search, and RTL support | Android 7.0+ | [Google Play Store](https://play.google.com/store/apps/details?id=com.studio.quicknotes&hl=en_IN) |
 
 ---
 

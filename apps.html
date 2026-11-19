@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>WebSyCode Applications | Official Software &amp; Tools</title>
-  <meta name="description" content="Explore official applications and tools developed by WebSyCode IT Consultancy and Development Center.">
-  <meta name="keywords" content="websycode apps, android apps, web apps, software development, surat, ankleshwar, gujarat">
+  <title>WebSyCode Applications | Notiva &amp; Software Suite</title>
+  <meta name="description" content="Explore official applications developed by WebSyCode, including Notiva - Simple Notes, Your Way on Google Play.">
+  <meta name="keywords" content="Notiva, WebSyCode, com.studio.quicknotes, android notes app, simple notes, offline notes, realm database, google play">
   <meta name="author" content="WebSyCode">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -63,16 +63,16 @@
     <section class="apps-hero">
       <div class="container">
         <div class="apps-hero-badge">
-          <i class="fa-solid fa-cubes"></i> Software Development
+          <i class="fa-brands fa-google-play"></i> Official Software
         </div>
         <h1>Applications &amp; Products</h1>
         <p>
-          Official applications, mobile solutions, and web utilities developed by WebSyCode.
+          Discover official mobile applications, software tools, and digital solutions created by WebSyCode.
         </p>
       </div>
     </section>
 
-    <!-- Apps Toolbar: Search & Category Filter Chips (Active when apps exist) -->
+    <!-- Apps Toolbar: Search & Category Filter Chips -->
     <section class="apps-toolbar-section">
       <div class="apps-toolbar-card">
         <!-- Search Bar -->
@@ -84,51 +84,46 @@
         <!-- Filter Chips -->
         <div class="apps-filter-chips">
           <button class="app-filter-btn active" data-filter="all">
-            <i class="fa-solid fa-border-all"></i> All
+            <i class="fa-solid fa-border-all"></i> All Applications
           </button>
-          <button class="app-filter-btn" data-filter="mobile">
-            <i class="fa-brands fa-android"></i> Mobile Apps
-          </button>
-          <button class="app-filter-btn" data-filter="web">
-            <i class="fa-solid fa-globe"></i> Web Applications
-          </button>
-          <button class="app-filter-btn" data-filter="business">
-            <i class="fa-solid fa-briefcase"></i> Enterprise &amp; Business
+          <button class="app-filter-btn" data-filter="tools">
+            <i class="fa-solid fa-toolbox"></i> Tools &amp; Productivity
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Apps Grid Container -->
+    <!-- Apps Grid Section -->
     <section class="apps-grid-container">
       
-      <!-- Empty State: Displayed when no applications are published yet -->
-      <div id="emptyAppsState" class="empty-apps-state">
+      <!-- Empty State Container (Used if no apps exist) -->
+      <div id="emptyAppsState" class="empty-apps-state" style="display: none;">
         <div class="empty-apps-icon">
           <i class="fa-solid fa-mobile-screen-button"></i>
         </div>
         <h2>Applications Coming Soon</h2>
-        <p>
-          Our application suite and public releases are currently in development and staging. Check back soon for official downloads and web applications.
-        </p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
-          <a href="contact.html" class="button button-primary">
-            <i class="fa-solid fa-paper-plane"></i> Inquire About Custom Apps
-          </a>
-          <a href="index.html#services" class="button button-outline">
-            <i class="fa-solid fa-list-check"></i> Explore Our Services
-          </a>
-        </div>
+        <p>Our applications are currently in staging. Check back soon for official releases.</p>
       </div>
 
-      <!-- Dynamic Apps Grid (Populated via window.appsCatalog in js/apps.js) -->
-      <div class="apps-grid" style="display: none;"></div>
+      <!-- Dynamic Apps Grid (Rendered by js/apps.js) -->
+      <div class="apps-grid">
+        <!-- Populated dynamically with Notiva -->
+      </div>
 
-      <!-- No Matching Apps Found during Search/Filter -->
+      <!-- Upcoming Applications Teaser Card -->
+      <div style="margin-top: 40px; padding: 30px; background: #ffffff; border-radius: 14px; border: 1px dashed #cbd5e1; text-align: center;">
+        <i class="fa-solid fa-code-merge" style="font-size: 2rem; color: var(--font-color); margin-bottom: 12px; display: inline-block;"></i>
+        <h4 style="font-weight: 700; color: var(--secondary-color); margin-bottom: 6px;">More Applications in Active Development</h4>
+        <p style="color: #64748b; font-size: 0.95rem; max-width: 620px; margin: 0 auto;">
+          Our engineering team is actively building and preparing additional mobile applications, web platforms, and open-source tools for release on Google Play and the web.
+        </p>
+      </div>
+
+      <!-- No Matching Apps Message during Search -->
       <div id="noAppsFound" class="no-apps-message">
         <i class="fa-solid fa-box-open"></i>
         <h3>No applications match your search query</h3>
-        <p>Try clearing your search query or selecting "All" from the category filters.</p>
+        <p>Try clearing your search query or selecting "All Applications".</p>
       </div>
     </section>
 
@@ -137,7 +132,7 @@
       <div class="container">
         <h2>Need a Custom Application Built for Your Business?</h2>
         <p>
-          We build custom Android apps, enterprise web dashboards, e-commerce solutions, and cloud architectures designed specifically for your organization.
+          We engineer custom Android apps, enterprise web dashboards, e-commerce storefronts, and cloud solutions tailored specifically to your needs.
         </p>
         <div class="d-flex justify-content-center gap-3 flex-wrap">
           <a href="contact.html" class="button button-primary">
@@ -150,7 +145,7 @@
       </div>
     </section>
 
-    <!-- App Details & Screenshots Modal (Ready for real apps) -->
+    <!-- App Details & Screenshots Modal -->
     <div id="appDetailsModal" class="app-modal-overlay">
       <div class="app-modal-container">
         <div class="app-modal-header">
@@ -163,24 +158,18 @@
 
         <div class="app-modal-body">
           <div id="modalAppPreviewScreen"></div>
-          <h4 class="modal-section-title"><i class="fa-solid fa-circle-info"></i> Overview</h4>
+          <h4 class="modal-section-title"><i class="fa-solid fa-circle-info"></i> About This App</h4>
           <p id="modalAppDescription" style="color: #475569; line-height: 1.7; font-size: 0.95rem;"></p>
-          <h4 class="modal-section-title"><i class="fa-solid fa-star"></i> Key Capabilities</h4>
+          <h4 class="modal-section-title"><i class="fa-solid fa-star"></i> Key Features &amp; Capabilities</h4>
           <ul id="modalAppFeatures" class="modal-feature-list"></ul>
-          <h4 class="modal-section-title"><i class="fa-solid fa-microchip"></i> Technology Architecture</h4>
+          <h4 class="modal-section-title"><i class="fa-solid fa-microchip"></i> Technology &amp; Privacy Architecture</h4>
           <div id="modalAppTechStack" class="modal-tech-stack"></div>
         </div>
 
         <div class="app-modal-footer">
           <button class="btn-app-action btn-secondary-action" onclick="closeAppModal()">Close</button>
-          <a id="modalDownloadApk" href="#" class="btn-app-action btn-secondary-action">
-            <i class="fa-brands fa-android"></i> Download APK
-          </a>
-          <a id="modalPlayStore" href="#" target="_blank" class="btn-app-action btn-secondary-action">
-            <i class="fa-brands fa-google-play"></i> Play Store
-          </a>
-          <a id="modalWebDemo" href="#" target="_blank" class="btn-app-action btn-primary-action">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Launch Live Demo
+          <a id="modalPlayStore" href="https://play.google.com/store/apps/details?id=com.studio.quicknotes&hl=en_IN" target="_blank" rel="noopener noreferrer" class="btn-app-action btn-primary-action">
+            <i class="fa-brands fa-google-play"></i> Get on Google Play
           </a>
         </div>
       </div>
@@ -235,23 +224,23 @@
     <div id="inquiryModal" class="inquiry-modal">
       <div class="inquiry-header">
         <div>
-          <h4>👋 Inquire About Our Apps</h4>
+          <h4>👋 Inquire About Notiva &amp; Apps</h4>
           <p>Get in touch with our engineering team:</p>
         </div>
         <button class="inquiry-close" onclick="closeInquiryModal()" aria-label="Close modal">&times;</button>
       </div>
       <div class="inquiry-body">
         <div class="inquiry-options">
+          <a href="https://play.google.com/store/apps/details?id=com.studio.quicknotes&hl=en_IN" target="_blank" class="inquiry-btn" style="border-color: #0673b5; color: #0673b5;">
+            <span><i class="fa-brands fa-google-play"></i> Download Notiva on Google Play</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
           <a href="https://wa.me/919909286731" target="_blank" class="inquiry-btn" style="border-color: #25D366; color: #128C7E;">
             <span><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (+91 99092 86731)</span>
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
           <a href="contact.html" class="inquiry-btn">
-            <span><i class="fa-solid fa-file-signature"></i> Request Custom App Demo</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-          <a href="mailto:info@websycode.in" class="inquiry-btn">
-            <span><i class="fa-solid fa-envelope"></i> Email: info@websycode.in</span>
+            <span><i class="fa-solid fa-file-signature"></i> Request Custom App Development</span>
             <i class="fa-solid fa-chevron-right"></i>
           </a>
         </div>
