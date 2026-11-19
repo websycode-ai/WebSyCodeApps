@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>WebSyCode | IT Consultancy &amp; Development Center</title>
+  <meta name="description" content="WebSyCode IT Consultancy and Development Center PAN India. We develop custom software, mobile apps, e-commerce, cloud solutions, and provide project training.">
+  <meta name="keywords" content="websycode, web development, android app development, IT consultancy, e-commerce, cloud consultancy, project training, internship, surat, ankleshwar, gujarat">
+  <meta name="author" content="WebSyCode">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/webp" sizes="192x192" href="assets/favicon.webp">
+  <link rel="apple-touch-icon" href="assets/favicon.webp">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div>
+    <!-- Top Hiring Notification Banner -->
+    <div id="hire-banner" class="hire-banner" style="display: none; top: -55px;">
+      <span class="close-banner" onclick="closeBanner()" aria-label="Close notification">&times;</span>
+      🚀 We are hiring! Join us at WebSyCode and grow with us. Check out our <a href="https://form.jotform.com/220875485499070" target="_blank">Careers</a> page for opportunities.
+    </div>
+
+    <!-- Header Navigation -->
+    <header id="main-header">
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/header_logo.webp" alt="WebSyCode - We invoke engineer inside you!" width="180">
+        </a>
+      </div>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+      <nav>
+        <ul>
+          <li><a href="#about" onclick="closeIfOpen()">ABOUT</a></li>
+          <li><a href="#services" onclick="closeIfOpen()">SERVICES</a></li>
+          <li><a href="apps.html">APPS</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="https://form.jotform.com/220875485499070" target="_blank">CAREERS</a></li>
+        </ul>
+      </nav>
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
+    </header>
+
+    <!-- Social Media Floating Bar -->
+    <div class="social-media">
+      <ul>
+        <li><a href="https://www.instagram.com/websycode/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/websycode/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="https://github.com/websycode" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+        <li><a href="https://twitter.com/websycode1" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
+      </ul>
+    </div>
+
+    <!-- Hero Section with Particle Canvas Animation -->
+    <div class="home" id="home">
+      <div class="particle-network-animation">
+        <canvas id="particle-canvas"></canvas>
+      </div>
+
+      <div class="hero-overlay-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-code"></i> Digital Engineering &amp; Software Solutions
+        </div>
+        <h1 class="hero-main-title">
+          We Invoke Engineer <br><span class="gradient-text">Inside You!</span>
+        </h1>
+        <p class="hero-subtitle">
+          We build end-to-end digital solutions for your business identity on the web with dedicated 24/7 support, 99.99% uptime, and industry-grade training for the next generation.
+        </p>
+        <div class="hero-actions">
+          <a href="apps.html" class="button button-primary">
+            <i class="fa-solid fa-mobile-screen-button"></i> Explore Our Apps
+          </a>
+          <a href="#services" class="button button-outline">
+            <i class="fa-solid fa-server"></i> Our Services
+          </a>
+          <button class="button button-primary" onclick="openInquiryModal()" style="background: linear-gradient(135deg, #232323, #0673b5);">
+            <i class="fa-solid fa-comments"></i> Inquire Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <span class="what-we-do">WHO <span class="we">ARE</span> WE?</span>
+            <p>
+              We started with a small team of hardworking talents passionate about building something that will add
+              value to society. Our journey began with a vision to innovate and create solutions that would make a
+              positive impact on people's lives. Our primary goal is to make people aware with recent
+              technologies and advancements which can bring a change in their
+              life and business. With determination and a clear mission, we embarked on a challenging
+              yet rewarding path towards success.
+              <br><br>
+              As we grew, so did our impact. Our innovative services gained recognition in the market,
+              attracting a loyal customer base and investors who believed in our mission. We leveraged strategic
+              partnerships and continuous feedback to iterate and improve, ensuring that we remained agile and
+              responsive to evolving needs.
+              <br><br>
+              Today, we are proud to say that we have flourished into a thriving business, 
+              making a meaningful difference in the lives of our customers.
+              <strong>We invoke engineer inside you!</strong>
+              We develop solutions for your Digital
+              identity on web, considering your efforts and
+              dedication. Our dedicated team is available 24/7,
+              delivering 99.99% uptime. We Train new generations on cutting
+              edge technologies to meet the requirements of future.
+              <br><br>
+              <strong style="color: var(--font-secondary-color); font-size: 1.2em;">We Develop, You Grow!</strong>
+            </p>
+
+            <div class="about-highlights">
+              <div class="about-stat-card">
+                <span class="stat-number">99.99%</span>
+                <span class="stat-label">Server Uptime</span>
+              </div>
+              <div class="about-stat-card">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Support &amp; Monitoring</span>
+              </div>
+              <div class="about-stat-card">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Projects &amp; Apps Delivered</span>
+              </div>
+              <div class="about-stat-card">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Engineers &amp; Interns Trained</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services" id="services">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <span class="title-underscore">OUR SERVICES</span>
+
+            <div class="service-cards">
+              <!-- Service 1 -->
+              <div class="service-card">
+                <span class="icon"><i class="fab fa-cpanel"></i></span>
+                <span class="service-title">Server &amp; Hosting</span>
+                <p>
+                  Looking for reliable Mail and Web Server? We will provide
+                  you with top-class professional emails for your business on
+                  top of any web hosting services.
+                </p>
+              </div>
+
+              <!-- Service 2 -->
+              <div class="service-card">
+                <span class="icon"><i class="fa-solid fa-code-branch"></i></span>
+                <span class="service-title">Open Source Contribution</span>
+                <p>
+                  We are an open-source organization on GitHub, welcoming new
+                  contributors to work on exciting projects.
+                </p>
+              </div>
+
+              <!-- Service 3 -->
+              <div class="service-card">
+                <span class="icon"><i class="fas fa-mail-bulk"></i></span>
+                <span class="service-title">Professional Business Emails</span>
+                <p>
+                  Looking for professional emails? We provide
+                  username@domain.com emails on your custom domains to grow
+                  your business's credibility.
+                </p>
+              </div>
+
+              <!-- Service 4 -->
+              <div class="service-card">
+                <span class="icon"><i class="fas fa-laptop-code"></i></span>
+                <span class="service-title">Web &amp; Mobile Development</span>
+                <p>
+                  We build custom websites, web and mobile applications across
+                  various technologies according to your business solutions.
+                </p>
+              </div>
+
+              <!-- Service 5 -->
+              <div class="service-card">
+                <span class="icon"><i class="fas fa-store"></i></span>
+                <span class="service-title">E-Commerce Applications</span>
+                <p>
+                  We provide ready-made E-commerce solutions tailored for your
+                  end-to-end business requirements with quick delivery.
+                </p>
+              </div>
+
+              <!-- Service 6 -->
+              <div class="service-card">
+                <span class="icon"><i class="fab fa-wordpress-simple"></i></span>
+                <span class="service-title">WordPress Site Migration</span>
+                <p>
+                  Finding troubles with the migration of websites built on
+                  WordPress? We are here to safely lift you to your new
+                  destination, speedy and securely.
+                </p>
+              </div>
+
+              <!-- Service 7 -->
+              <div class="service-card">
+                <span class="icon"><i class="fas fa-cloud-meatball"></i></span>
+                <span class="service-title">Cloud Consultancy</span>
+                <p>
+                  Worried about migrating your services to Cloud? Don't worry,
+                  we have the finest consultants to rescue your cost and
+                  optimization needs.
+                </p>
+              </div>
+
+              <!-- Service 8 -->
+              <div class="service-card">
+                <span class="icon"><i class="fas fa-user-tie"></i></span>
+                <span class="service-title">Brand Management Services</span>
+                <p>
+                  We bring your business to the digital world and build its
+                  identity on the web, we also provide a Dedicated Google My
+                  Business management service.
+                </p>
+              </div>
+
+              <!-- Service 9 -->
+              <div class="service-card">
+                <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+                <span class="service-title">Internships &amp; Trainings</span>
+                <p>
+                  We train fresh minds to align their skills with true
+                  industrial standards, we work with great projects to expose
+                  interns to exciting technologies.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Section (Interactive Swiper Slider Container) -->
+    <div class="team" id="team">
+      <span class="title-underscore">MEET OUR TEAM</span>
+      <div class="team-members swiper-container">
+        <div class="swiper-wrapper">
+          <!-- Dynamically populated by js/script.js -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Careers / Training Section -->
+    <div class="careers" id="careers">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>COME JOIN US</h3>
+            <h5>We provide training in below mentioned domains and technologies</h5>
+            <div class="requirements">
+              <ul class="requirement-list">
+                <li>Agile Software Craftmanship</li>
+                <li>Python Language</li>
+                <li>Android Application Development</li>
+                <li>Web Technology</li>
+                <li>Certificate Diploma/ DCA /PGDCA</li>
+                <li>JAVA Language</li>
+                <li>PHP Projects</li>
+                <li>Final Year Project Training- BCA/MCA/MSc-IT/CS</li>
+                <li>E-Commerce Websites</li>
+              </ul>
+
+              <hr>
+
+              <div class="live-training-box">
+                <span>We also provide Live Project Training</span>
+                <ul>
+                  <li>Opportunity for Internships in Android Development</li>
+                  <li>Projects for Website and WebApps</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="careers-apply_for_training-button">
+              <a href="https://form.jotform.com/220875485499070" target="_blank">
+                <i class="fa-solid fa-graduation-cap"></i> JOIN OUR TRAINING
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row mb-3">
+          <div class="col-12 text-center">
+            <div class="footer-nav-links">
+              <a href="#about">About</a>
+              <a href="#services">Services</a>
+              <a href="apps.html">Applications</a>
+              <a href="contact.html">Contact</a>
+              <a href="https://form.jotform.com/220875485499070" target="_blank">Careers</a>
+            </div>
+            <div class="footer-social-row">
+              <a href="https://www.instagram.com/websycode/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/websycode/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://github.com/websycode" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://twitter.com/websycode1" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            </div>
+            <div style="font-size: 1.1em; margin-bottom: 10px;">
+              <strong><i class="fa-solid fa-code"></i></strong>
+              with
+              <i class="fa-solid fa-heart" style="color: #ef4444;"></i> at
+              <strong style="color: var(--font-secondary-color);">WebSyCode</strong> | &copy; 2024
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-12 text-center" style="font-size: 0.85rem; color: #94a3b8;">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" style="margin-right: 8px;">
+              <img alt="Creative Commons License" style="border-width: 0; vertical-align: middle;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png">
+            </a>
+            This work is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive Inquiry Floating Button -->
+    <button class="inquiry-launcher" onclick="openInquiryModal()" aria-label="Open Inquiry Widget">
+      <span class="inquiry-online-dot"></span>
+      <i class="fa-solid fa-comment-dots"></i> Inquiry
+    </button>
+
+    <!-- Interactive Inquiry Modal -->
+    <div id="inquiryModal" class="inquiry-modal">
+      <div class="inquiry-header">
+        <div>
+          <h4>👋 Hello from WebSyCode!</h4>
+          <p>How can we assist you today?</p>
+        </div>
+        <button class="inquiry-close" onclick="closeInquiryModal()" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="inquiry-body">
+        <div class="inquiry-prompt">Select what you are looking for:</div>
+        <div class="inquiry-options">
+          <a href="apps.html" class="inquiry-btn">
+            <span><i class="fa-solid fa-mobile-screen"></i> Explore Software &amp; Apps</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          <a href="contact.html" class="inquiry-btn">
+            <span><i class="fa-solid fa-globe"></i> Website &amp; Mobile Development</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          <a href="https://form.jotform.com/220875485499070" target="_blank" class="inquiry-btn">
+            <span><i class="fa-solid fa-graduation-cap"></i> Student Training &amp; Internships</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          <a href="contact.html" class="inquiry-btn">
+            <span><i class="fa-solid fa-laptop-code"></i> Final Year BCA/MCA Projects</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          <a href="https://wa.me/919909286731" target="_blank" class="inquiry-btn" style="border-color: #25D366; color: #128C7E;">
+            <span><i class="fa-brands fa-whatsapp"></i> Chat Directly on WhatsApp</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/particle.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/additionals.js"></script>
+</body>
+</html>

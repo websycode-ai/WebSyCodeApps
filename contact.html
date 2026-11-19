@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSyCode | Contact Us</title>
+  <meta name="description" content="Contact WebSyCode IT Consultancy and Development Center. Reach us for web development, mobile apps, software consultancy, and project training.">
+  <link rel="icon" type="image/webp" sizes="192x192" href="assets/favicon.webp">
+  <link rel="apple-touch-icon" href="assets/favicon.webp">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Hiring Notification Banner -->
+  <div id="hire-banner" class="hire-banner" style="display: none; top: -55px;">
+    <span class="close-banner" onclick="closeBanner()" aria-label="Close notification">&times;</span>
+    🚀 We are hiring! Join us at WebSyCode and grow with us. Check out our <a href="https://form.jotform.com/220875485499070" target="_blank">Careers</a> page for opportunities.
+  </div>
+
+  <!-- Header Navigation -->
+  <header id="main-header" class="nav-scrolled">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/header_logo.webp" alt="WebSyCode Logo" width="180">
+      </a>
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+    <nav>
+      <ul>
+        <li><a href="index.html#about" onclick="closeIfOpen()">ABOUT</a></li>
+        <li><a href="index.html#services" onclick="closeIfOpen()">SERVICES</a></li>
+        <li><a href="apps.html">APPS</a></li>
+        <li><a href="contact.html" class="active-link">CONTACT</a></li>
+        <li><a href="https://form.jotform.com/220875485499070" target="_blank">CAREERS</a></li>
+      </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+  </header>
+
+  <!-- Left Floating Social Media Bar -->
+  <div class="social-media">
+    <ul>
+      <li><a href="https://www.instagram.com/websycode/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/websycode/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+      <li><a href="https://github.com/websycode" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+      <li><a href="https://twitter.com/websycode1" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
+    </ul>
+  </div>
+
+  <!-- Contact Us Main Section -->
+  <div class="contact" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          
+          <div class="contact-main">
+            <span class="contact-about">CONTACT <span class="we">US</span></span>
+            <p>
+              We welcome you to get in touch with us for any inquiries, collaborations, or feedback. Our team is
+              dedicated to providing exceptional customer service and ensuring that your experience with us is
+              smooth and satisfactory. We'd love to hear from you!
+            </p>
+          </div>
+
+          <!-- 4 Contact Columns with 45-degree diamond borders -->
+          <div class="contact-details">
+            <!-- 1. Address -->
+            <div class="contact-col-card">
+              <span class="icon-wrapper">
+                <span class="icon-content"><i class="fas fa-map-marker-alt"></i></span>
+              </span>
+              <span class="contact-icon-title">Address</span>
+              <span class="contact-content">T-22, R-10 Corner, Jaldhara Chowkdi, Ankleshwar - 393002</span> 
+            </div> 
+
+            <!-- 2. Contact Number & WhatsApp -->
+            <div class="contact-col-card">
+              <span class="icon-wrapper">
+                <span class="icon-content"><i class="fas fa-phone"></i></span>
+              </span>
+              <span class="contact-icon-title">Contact Number</span>
+              <span class="contact-content">
+                <a href="https://wa.me/919909286731" target="_blank">
+                  <i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 1.15em;"></i> Click Here to WhatsApp
+                </a>
+              </span>
+            </div>
+
+            <!-- 3. Email Address -->
+            <div class="contact-col-card">
+              <span class="icon-wrapper">
+                <span class="icon-content"><i class="fas fa-envelope"></i></span>
+              </span>
+              <span class="contact-icon-title">Email Address</span>
+              <span class="contact-content">
+                <a href="mailto:info@websycode.in">info@websycode.in</a>
+              </span>
+            </div>
+
+            <!-- 4. QR Code -->
+            <div class="contact-col-card">
+              <span class="icon-wrapper">
+                <span class="icon-content"><i class="fas fa-qrcode"></i></span>
+              </span>
+              <span class="contact-icon-title">Quick Connect</span>
+              <span class="contact-content">
+                <img class="contact-qr-img" width="140" height="140" src="assets/qr_websycode.png" alt="WebSyCode QR Code">
+              </span> 
+            </div> 
+          </div>
+
+          <!-- Quick Message Form -->
+          <div class="contact-form-section">
+            <h3 class="contact-form-title">Send Us a Direct Message</h3>
+            <p style="text-align: center; color: #64748b; font-size: 0.95rem; margin-bottom: 2em;">
+              Have a project idea, question, or looking for custom software? Fill out the form below.
+            </p>
+            <form id="contactForm" onsubmit="event.preventDefault(); handleFormSubmit();">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="userName">Your Name *</label>
+                  <input type="text" id="userName" class="form-control-custom" placeholder="John Doe" required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="userEmail">Email Address *</label>
+                  <input type="email" id="userEmail" class="form-control-custom" placeholder="john@example.com" required>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="userPhone">Phone / WhatsApp Number</label>
+                  <input type="tel" id="userPhone" class="form-control-custom" placeholder="+91 98765 43210">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="userCategory">Subject / Requirement *</label>
+                  <select id="userCategory" class="form-control-custom" required>
+                    <option value="">Select an option</option>
+                    <option value="Custom App Development">Custom App / Software Development</option>
+                    <option value="Website / E-Commerce">Website or E-Commerce Store</option>
+                    <option value="POS & Billing Software">WebSy Bill POS / Billing</option>
+                    <option value="Student Project / Internship">Internship or Live Project Training</option>
+                    <option value="Server / Cloud Hosting">Cloud Migration &amp; Web Hosting</option>
+                    <option value="Other Inquiry">Other Inquiry</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="userMessage">Message / Project Details *</label>
+                <textarea id="userMessage" class="form-control-custom" placeholder="Tell us about your requirements, timeline, or inquiries..." required></textarea>
+              </div>
+
+              <div class="text-center" style="margin-top: 1.5em;">
+                <button type="submit" class="button button-primary" style="padding: 0.85em 3em; font-size: 1rem;">
+                  <i class="fa-solid fa-paper-plane"></i> Send Message
+                </button>
+              </div>
+            </form>
+
+            <div id="formSuccessAlert" style="display: none; margin-top: 1.5em; padding: 1em; background: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; color: #065f46; text-align: center;">
+              <i class="fa-solid fa-circle-check" style="font-size: 1.2em; margin-right: 6px;"></i>
+              <strong>Thank you!</strong> Your message has been sent successfully. Our team will contact you shortly.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col-12 text-center">
+          <div class="footer-nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="apps.html">Applications</a>
+            <a href="contact.html">Contact</a>
+            <a href="https://form.jotform.com/220875485499070" target="_blank">Careers</a>
+          </div>
+          <div class="footer-social-row">
+            <a href="https://www.instagram.com/websycode/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/websycode/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/websycode" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/websycode1" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          </div>
+          <div style="font-size: 1.1em; margin-bottom: 10px;">
+            <strong><i class="fa-solid fa-code"></i></strong>
+            with
+            <i class="fa-solid fa-heart" style="color: #ef4444;"></i> at
+            <strong style="color: var(--font-secondary-color);">WebSyCode</strong> | &copy; 2024
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-12 text-center" style="font-size: 0.85rem; color: #94a3b8;">
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" style="margin-right: 8px;">
+            <img alt="Creative Commons License" style="border-width: 0; vertical-align: middle;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png">
+          </a>
+          This work is licensed under a
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Inquiry Floating Button -->
+  <button class="inquiry-launcher" onclick="openInquiryModal()" aria-label="Open Inquiry Widget">
+    <span class="inquiry-online-dot"></span>
+    <i class="fa-solid fa-comment-dots"></i> Inquiry
+  </button>
+
+  <!-- Interactive Inquiry Modal -->
+  <div id="inquiryModal" class="inquiry-modal">
+    <div class="inquiry-header">
+      <div>
+        <h4>👋 Need Fast Assistance?</h4>
+        <p>Chat directly or choose an option:</p>
+      </div>
+      <button class="inquiry-close" onclick="closeInquiryModal()" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="inquiry-body">
+      <div class="inquiry-options">
+        <a href="https://wa.me/919909286731" target="_blank" class="inquiry-btn" style="border-color: #25D366; color: #128C7E;">
+          <span><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (+91 99092 86731)</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="mailto:info@websycode.in" class="inquiry-btn">
+          <span><i class="fa-solid fa-envelope"></i> Email: info@websycode.in</span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
+        <a href="apps.html" class="inquiry-btn">
+          <span><i class="fa-solid fa-mobile-screen"></i> Browse Our Apps Catalog</span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+  <script src="js/additionals.js"></script>
+  <script>
+    function handleFormSubmit() {
+      var form = document.getElementById('contactForm');
+      var alertBox = document.getElementById('formSuccessAlert');
+      alertBox.style.display = 'block';
+      form.reset();
+      setTimeout(function() {
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  </script>
+</body>
+</html>
