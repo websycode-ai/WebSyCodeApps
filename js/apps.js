@@ -55,6 +55,60 @@ window.appsCatalog = {
         caption: "Comfortable reading experience in both light and dark modes."
       }
     ]
+  },
+  aivista: {
+    id: "aivista",
+    name: "Aivista: Smart Photo Gallery",
+    shortName: "Aivista",
+    tagline: "Organize, relive, edit, and protect your favorite moments with Material Design 3",
+    packageName: "com.aivista.smartgallery.photoeditor",
+    category: "photography",
+    categoryTitle: "Photography & Media",
+    developer: "WebSyCode",
+    version: "2.0.0",
+    rating: "Rated 3+",
+    downloads: "New Release on Google Play",
+    requiresAndroid: "Android 10 and up",
+    iconSrc: "assets/apps/aivista/icon.webp",
+    remoteIcon: "https://play-lh.googleusercontent.com/0qMVDKU0M5f79gYc11qO3C9ncn54Z_xsU-X1TRXo6jDeZOfFZOwz3pNxmgvFiULhYr1RuKhpAYqc4BgxgBZy=w240-h480-rw",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.aivista.smartgallery.photoeditor",
+    shortDescription: "Organize, relive, edit, and protect your favorite moments with Aivista — a modern photo gallery and photo editor built with Material Design 3. Designed for speed, clarity, and privacy with story-style memories, a non-destructive editing studio, an encrypted private vault, and a smart duplicate cleaner.",
+    longDescription: "Aivista brings effortless media management, story-style memories, a non-destructive editing studio, an encrypted private vault, and a smart duplicate cleaner together in one seamless experience. Browse thousands of photos and videos smoothly with chronological timelines, sticky date headers, and responsive album grids. Keep personal media protected in an encrypted private vault powered by Android Keystore, and edit your photos without ever altering the original files.",
+    features: [
+      "Smart Media Gallery: Chronological timelines, sticky date headers & responsive album grids",
+      "Story-Style Memories: Curated circular story collections (Recent, Flashback, Cute, Loved)",
+      "Non-Destructive Photo Editor: 12 curated filters, 10 fine-tune adjustments, and side-by-side comparison",
+      "Private Photo Vault: Hardware-backed encryption via Android Keystore with biometric & PIN lock",
+      "Smart Duplicate Cleaner: Identifies exact and visually similar duplicates to reclaim storage",
+      "Creative Collage Maker: Flexible multi-photo grid layouts with customizable borders and spacing",
+      "Recycle Bin: Safely restore deleted photos and videos with retention tracking",
+      "Privacy First: Local-first architecture — your photos, videos, and vault stay securely on your device",
+      "Adaptive Material Design 3: Optimized for phones, foldables, and tablets with Light and Dark modes"
+    ],
+    techStack: ["Android (Kotlin)", "Material Design 3", "Android Keystore Encryption", "Non-Destructive Editing", "Local-First Architecture"],
+    platforms: ["<i class=\"fa-brands fa-android\"></i> Android 10+", "<i class=\"fa-brands fa-google-play\"></i> Google Play"],
+    screenshots: [
+      {
+        src: "assets/apps/aivista/screenshot1.webp",
+        title: "Smart Photo Gallery",
+        caption: "Chronological timelines, smooth browsing, and responsive album grids."
+      },
+      {
+        src: "assets/apps/aivista/screenshot2.webp",
+        title: "Story Memories",
+        caption: "Relive your favorite moments with full-screen interactive stories."
+      },
+      {
+        src: "assets/apps/aivista/screenshot3.webp",
+        title: "Photo Editing Studio",
+        caption: "Fine-tune adjustments, 12 curated filters, and side-by-side comparison."
+      },
+      {
+        src: "assets/apps/aivista/screenshot4.webp",
+        title: "Encrypted Private Vault",
+        caption: "Hardware-backed biometric and PIN security powered by Android Keystore."
+      }
+    ]
   }
 };
 

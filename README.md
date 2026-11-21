@@ -43,6 +43,7 @@ WebSyCodeApps/
 
 | Application | Category | Description | Platforms | Store Link |
 | :--- | :--- | :--- | :--- | :--- |
+| **Aivista: Smart Photo Gallery** | Photography & Media | Modern photo gallery & editor with Material 3, story memories, non-destructive editing studio, encrypted private vault, and duplicate cleaner | Android 10+ | [Google Play Store](https://play.google.com/store/apps/details?id=com.aivista.smartgallery.photoeditor) |
 | **Notiva – Simple Notes, Your Way** | Tools & Productivity | Lightweight, distraction-free notes app with local Realm database, light/dark themes, pinning, search, and RTL support | Android 7.0+ | [Google Play Store](https://play.google.com/store/apps/details?id=com.studio.quicknotes&hl=en_IN) |
 
 ---
